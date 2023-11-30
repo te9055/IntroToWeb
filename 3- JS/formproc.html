@@ -1,0 +1,37 @@
+<script type="text/javascript">
+  function verify(theform)
+{
+  var qualityselect, option, j;
+  win = open("", "messWin");
+  win.document.writeln("<h2>The name is: " + theform.username.value + "</h2>");
+  win.document.writeln("<h2>The address is: " + theform.address.value + "</h2>");
+  for (j=0; j <3; j++) {
+    if (theform.how[j].checked) {
+      win.document.writeln("<h2> How found: " + theform.how[j].value + " </h2>")
+    };
+  }
+  qualityselect = theform.quality.selectedIndex;
+  option = theform.quality.options[qualityselect].value;
+  win.document.writeln("<h2>The site is rated: " + option + "</h2>");
+  win.close;
+}
+</script>
+
+<form class="formfield" onSubmit="verify(this)" name="verifyFm">
+  <h2>Tell us what you think</h2><h4>
+    Your name: <input type="text" name="username"><br>
+    And address: <input type="text" name="address" size="35">
+        </h4><table><tr><td>
+        How did you find us?:<br>
+        A friend <input type="checkbox" name="how" value="friend"><br>
+        In a dream <input type="checkbox" name="how" value="dream"/><br>
+        Clicked link <input type="checkbox" name="how" value="link">
+        </td><td>In the general scheme of life, how would you rate us?:
+        <select name="quality">
+          <option value="head blowing">head blowing</option>
+          <option value="soporific">soporific</option>
+          <option value="the pits">the pits</option>
+  </select> </td></tr></table>
+  <input type="submit" value="send it"/>
+  <input type="reset" value="clear the form"/>
+</form>

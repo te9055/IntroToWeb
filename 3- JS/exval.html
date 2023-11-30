@@ -1,0 +1,21 @@
+<head>
+<script type="text/javascript">
+  function verifyForm(theForm) {
+   var content = "";
+   if(theForm.username.value == "" ) {
+    content += "Please enter a name\n";}
+   if(theForm.address.value == "" ) {
+    content += "Please enter an address\n";}
+   if (!content=="")
+    {alert(content); return false;}
+  }
+</script>
+</head>
+<body>
+ <form name="myForm" class="theForm" method="POST" action="x.php"
+ onSubmit="return verifyForm(this)">
+  Name: <input type="text" name="username"><br>
+  Address:<input type="text" name="address"><br>
+  <input type="submit" value="Send">
+ </form>
+</body>

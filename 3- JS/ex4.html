@@ -1,0 +1,18 @@
+<script language="javascript">
+function verifysub()  {
+var thename = document.getElementById("username").value;
+var address3 = document.getElementById("address").value;
+alert( "Hello " + thename);
+alert( "Your address is: " + address3); }
+</script>
+</head>
+<body>
+<form  onSubmit="verifysub()"  name="myform">
+Please provide your name:<input type="text" id="username"
+                                      name="username"><br>
+And address:<input type="text" id="address" name="address"
+                                           size="35"></h4>
+<h3>Thanks for your interest</h3>
+<input type="submit" value="send it">
+<input type="reset" value="clear the form">
+</form>

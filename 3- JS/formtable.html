@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			function verifysub(theform) {
+				var qualityselect, option2, j;
+
+				// get table cell node and assign the form value to its nodeValue
+				var cell1 = document.getElementById("thename");
+				cell1.firstChild.nodeValue = theform.username.value;
+
+				var cell2 = document.getElementById("theaddress");
+				cell2.firstChild.nodeValue = theform.address.value;
+				var cell3 = document.getElementById("heard");
+				cell3.firstChild.nodeValue = " ";
+				for (j=0; j<3; j++) {
+					if (theform.howheard[j].checked) {
+						var heard = theform.howheard[j].value;
+						cell3.firstChild.nodeValue += heard + " ";
+					}
+				}
+				qualityselect = theform.quality.selectedIndex;
+				option2 = theform.quality.options[qualityselect].value;
+				var cell4 = document.getElementById("rating");
+				cell4.firstChild.nodeValue = option2;
+				return  false;
+			}
+		</script>
+	</head>
+
+	<body>
+		<form class="formfield"  onSubmit="return verifysub(this)">
+			<h2>Tell us what you think</h2><h4>
+				Please provide your name:<input type="text" name="username"><br>
+				And address:<input type="text" name="address" size="35"></h4>
+			<table><tr><td>
+						How did you find out about this web site?:<br>
+						A friend told me<input type="checkbox" name="howheard" value="friend"><br>
+						In a dream<input type="checkbox" name="howheard" value="dream"><br>
+						Followed a link<input type="checkbox" name="howheard" value="link">
+						</td><td>
+						In the general scheme of life, how would you rate us?:
+						<select name="quality">
+							<option value="head blowing">head blowing
+							<option value="worth a detour">worth a detour
+							<option value="somnolent">somnolent
+							<option value="the pits">the pits
+			</select></td>    </tr></table>
+			<h3>Thanks for your interest</h3>
+			<input type="submit" value="send it">
+			<input type="reset" value="clear the form">
+		</form>
+		<div class="thetable">
+			<table border="1">
+				<tr> <th>The name:</th> <td id="thename"> </td> </tr>
+				<tr> <th>The address:</th> <td id="theaddress"> </td> </tr>
+				<tr> <th>How heard:</th> <td id="heard"> </td> </tr>
+				<tr> <th>How rating:</th> <td id="rating"> </td> </tr>
+			</table>
+		</div>
+	</body>
+</html>

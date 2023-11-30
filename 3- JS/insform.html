@@ -1,0 +1,20 @@
+<script type="text/javascript">
+function addNode(theForm) {
+var inText = theForm.text1.value;
+ var theText = document.createTextNode(inText);
+ var para1 = document.createElement("p");
+ para1.appendChild(theText);
+ var thediv =
+      document.getElementById("mydiv");
+ thediv.appendChild(para1);
+ return false;  }
+</script>
+</head>
+<body>
+<form action="#"
+   onsubmit = "return addNode(this)" >
+<p><textarea id="text1" rows="5" cols="30"></textarea></p>
+<input type="submit" value="addTheText" id="submit1" />
+</form>
+<div id="mydiv">  </div>
+</body>

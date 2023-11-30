@@ -1,0 +1,21 @@
+<html>
+<head><title>Movement</title>
+<style>
+  #para1 {position: absolute; font-size = 12pt; font-family: arial, sans-serif;}
+</style>
+<script type="text/javascript">
+     function move(x, y) {
+      var thePara = document.getElementById("para1");
+      thePara.style.top = y;
+      thePara.style.left = x;
+      thePara.style.fontSize = "24pt";
+      thePara.style.color = "red";
+      thePara.innerHTML = "I told you not to click!";
+      }
+</script>
+</head>
+<body>
+<p id="para1" onclick="move(200,100)">
+     Do not click here!
+</p> </body>
+</html>

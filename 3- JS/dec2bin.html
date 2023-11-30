@@ -1,0 +1,17 @@
+<html><head></head><body>
+<script type="text/javascript">
+<!--
+function dec2bin(number)
+{
+  if (number < 2)
+  {
+    return number;
+  }
+  return dec2bin(Math.floor(number / 2)) + (number % 2).toString();
+}
+
+var number = window.prompt("Enter a number: ","0");
+var binary = dec2bin(number);
+document.writeln("<h2>Decimal " + number + " = " + binary + " in binary</h2>");
+//-->
+</script></body></html>

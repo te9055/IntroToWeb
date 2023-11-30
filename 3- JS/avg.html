@@ -1,0 +1,19 @@
+<html><head></head><body>
+<script type="text/javascript">
+<!--
+  var age, averageAge, counter, total, ageValue;
+  total = 0; ageValue = 1; counter = 0;
+
+  document.writeln("<h2>Average age of the class</h2>");
+  while (ageValue > 0) {
+    age = window.prompt("Enter age (0 to end): ","0");
+    ageValue = parseInt(age);
+    if (ageValue > 0) {
+      total = total + ageValue;
+      counter++;
+    }
+  }
+  averageAge = total/counter;
+  document.writeln("<h2>Average = " + averageAge +"</h2>");
+//-->
+</script></body></html>

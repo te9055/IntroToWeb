@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <script type="text/javascript">
+      function match() {
+        var pt = document.form.regex.value;
+        var result = "";
+        if (0 !== pt.length)
+        {
+        var re = new RegExp(pt, "g");
+        var str = document.form.str.value;
+        while (mt = re.exec(str))
+        {
+          result += "Match '" + mt[0] + "' at position " + re.lastIndex + "\n";
+        }
+        }
+        if (0 == result.length) {result = "No match!";}
+        document.getElementById("result").innerHTML = result;
+      }
+    </script>
+  </head>
+  <body>
+    <form id="form" name="form" method="post" action="javascript:void(0)">
+      Regexp: <input type="text" name="regex" value="(\w+(\s|\.))" size=64><br />
+      String: <input type="text" name="str"
+       value="The needs of the many outweigh the needs of the few. Or the one." size=64><br />
+      <input type="submit" value="Match" onClick="match()"><br />
+    </form>
+    Result:<br />
+    <pre id="result"></pre>
+  </body>
+</html>

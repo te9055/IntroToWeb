@@ -1,0 +1,24 @@
+<html>
+	<head>
+	<script type="text/javascript">
+	function checkURL()
+{
+	var url = document.forms[0].homeURL.value;
+	var url_pattern = new RegExp("^http://(\w+\.)+.");
+	if(!url.match(url_pattern)) {
+		alert("URL is NOT valid!");
+		return false;
+	}
+	alert("Thank you, that's ok!");
+	return false;
+}
+</script>
+</head>
+
+<body>
+	<form method="POST" action="processing.php" onSubmit="return checkURL()">
+		<p>Please enter the address of your home page</p>
+		<p><input type="text" name="homeURL" size="40"></p>
+		<p><input type="submit" value="Submit"></p>
+	</form>
+</body>
