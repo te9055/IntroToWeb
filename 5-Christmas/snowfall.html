@@ -1,149 +1,144 @@
-<html>
+<!DOCTYPE html>
 
-
-<style>
-
-	* {
-	  box-sizing: border-box;
-	}
-
-	body {
-	  margin: 0;
-	}
-
-	.main {
-	  background: linear-gradient(to bottom, #2d91c2 0%, #1e528e 100%);
-	  display: flex;
-	  align-items: center;
-	  justify-content: center;
-	  font-family: cursive;
-	  height: 100vh;
-	  padding: 20px;
-	  text-align: center;
-	}
-
-	h1 {
-	  color: white;
-	}
-
-	#snow-container {  
-	  height: 100vh;
-	  overflow: hidden;
-	  position: absolute;
-	  top: 0;
-	  transition: opacity 500ms;
-	  width: 100%;
-	}
-
-	.snow {
-	  animation: fall ease-in infinite, sway ease-in-out infinite;
-	  color: #87CEEB;
-	  position: absolute;
-	}
-
-	@keyframes fall {
-	  0% {
-	    opacity: 0;
-	  }
-	  50% {
-	    opacity: 1;
-	  }
-	  100% {
-	    top: 100vh;
-	    opacity: 1;
-	  }
-	}
-
-	@keyframes sway {
-	  0% {
-	    margin-left: 0;
-	  }
-	  25% {
-	    margin-left: 50px;
-	  }
-	  50% {
-	    margin-left: -50px;
-	  }
-	  75% {
-	    margin-left: 50px;
-	  }
-	  100% {
-	    margin-left: 0;
-	  }
-	}
-</style>
-
-
-
-
+<html lang="en">
 <head>
+    <style>
 
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .main {
+            background: linear-gradient(to bottom, #2d91c2 0%, #1e528e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: cursive;
+            height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        #snow-container {
+            height: 100vh;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            transition: opacity 500ms;
+            width: 100%;
+        }
+
+        .snow {
+            animation: fall ease-in infinite, sway ease-in-out infinite;
+            color: #87CEEB;
+            position: absolute;
+        }
+
+        @keyframes fall {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                top: 100vh;
+                opacity: 1;
+            }
+        }
+
+        @keyframes sway {
+            0% {
+                margin-left: 0;
+            }
+            25% {
+                margin-left: 50px;
+            }
+            50% {
+                margin-left: -50px;
+            }
+            75% {
+                margin-left: 50px;
+            }
+            100% {
+                margin-left: 0;
+            }
+        }
+    </style>
+    <title>Merry Christmas!</title>
 </head>
 
 <body>
-	<div class= "main">
-  		<h1>Merry Christmas!</h1>
-	</div>
-	<div id="snow-container" title="Click anywhere to remove snow">
-	</div>
+<div class="main">
+    <h1>Merry Christmas!</h1>
+</div>
+<div id="snow-container" title="Click anywhere to remove snow">
+</div>
 
-	<script type="text/javascript">
+<script type="text/javascript">
 
-	// get the div we have created for the snow to fall in
-	const snowContainer = document.getElementById("snow-container");
-	
-	//html snowflake objects
-	const snowContent = ['&#10052', '&#10053', '&#10054']
+    // get the div we have created for the snow to fall in
+    const snowContainer = document.getElementById("snow-container");
 
-	// return random
-	const random = (num) => {
-	  return Math.floor(Math.random() * num);
-	}
+    //html snowflake objects
+    const snowContent = ['&#10052', '&#10053', '&#10054']
 
-	// define a snowflake 
-	const getRandomStyles = () => {
-	  const top = random(100);
-	  const left = random(100);
-	  const dur = random(10) + 10;
-	  const size = random(25) + 25;
-	  return `
-	    top: -${top}%;
-	    left: ${left}%;
-	    font-size: ${size}px;
-	    animation-duration: ${dur}s;
-	  `;
-	}
+    // return random
+    const random = (num) => {
+        return Math.floor(Math.random() * num);
+    }
 
-	// add the snowflakes to the page
-	const createSnow = (num) => {
-	  for (var i = num; i > 0; i--) {
-	    var snow = document.createElement("div");
-	    snow.className = "snow";
-	    snow.style.cssText = getRandomStyles();
-	    snow.innerHTML = snowContent[random(3)]
-	    snowContainer.append(snow);
-	  }
-	}
+    // define a snowflake
+    const getRandomStyles = () => {
+        const top = random(100);
+        const left = random(100);
+        const dur = random(10) + 10;
+        const size = random(25) + 25;
+        return `
+                top: -${top}%;
+                left: ${left}%;
+                font-size: ${size}px;
+                animation-duration: ${dur}s;
+              `;
+    }
 
-	//remove the snowflake from the page
-	const removeSnow = () => {
-	  snowContainer.style.opacity = "0";
-	  setTimeout(() => {
-	    snowContainer.remove()
-	  }, 500)
-	}
+    // add the snowflakes to the page
+    const createSnow = (num) => {
+        for (var i = num; i > 0; i--) {
+            var snow = document.createElement("div");
+            snow.className = "snow";
+            snow.style.cssText = getRandomStyles();
+            snow.innerHTML = snowContent[random(3)]
+            snowContainer.append(snow);
+        }
+    }
 
-	// when the page is loaded add the snowflackes 
-	window.addEventListener("load", () => {
-	  createSnow(30)
-	});
+    //remove the snowflake from the page
+    const removeSnow = () => {
+        snowContainer.style.opacity = "0";
+        setTimeout(() => {
+            snowContainer.remove()
+        }, 500)
+    }
 
-	// when the page is clicked remove the snowflackes 
-	window.addEventListener("click", () => {
-	  removeSnow()
-	});
+    // when the page is loaded add the snowflackes
+    window.addEventListener("load", () => {
+        createSnow(30)
+    });
+
+    // when the page is clicked remove the snowflackes
+    window.addEventListener("click", () => {
+        removeSnow()
+    });
 
 </script>
 </body>
-
 </html>
