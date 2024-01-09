@@ -38,7 +38,7 @@
 
         .snow {
             animation: fall ease-in infinite, sway ease-in-out infinite;
-            color: #87CEEB;
+            color: #FFA023;
             position: absolute;
         }
 
@@ -80,16 +80,14 @@
 <div class="main">
     <h1>Merry Christmas!</h1>
 </div>
-<div id="snow-container" title="Click anywhere to remove snow">
-</div>
-
+<div id="snow-container" title="Click anywhere to remove snow"/>
 <script type="text/javascript">
 
     // get the div we have created for the snow to fall in
     const snowContainer = document.getElementById("snow-container");
 
     //html snowflake objects
-    const snowContent = ['&#10052', '&#10053', '&#10054']
+    const snowContent = ['hello', '&#128044', '&#129477']
 
     // return random
     const random = (num) => {
@@ -131,11 +129,11 @@
 
     // when the page is loaded add the snowflackes
     window.addEventListener("load", () => {
-        createSnow(30)
+        createSnow(100)
     });
 
     // when the page is clicked remove the snowflackes
-    window.addEventListener("click", () => {
+    window.addEventListener("mousedown", () => {
         removeSnow()
     });
 
